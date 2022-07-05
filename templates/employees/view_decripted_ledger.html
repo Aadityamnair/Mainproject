@@ -1,0 +1,76 @@
+ {% extends 'employee/employee_base.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h2>BLOCKCHAIN LEDGER </h2>
+
+<table id="customers">
+  <tr>
+      <th></th>
+    <th> NAME</th>
+      <th>TIME</th>
+      <th>REMARK</th>
+      <th>status</th>
+      <th>BLOCK CHAIN COUNT</th>
+      <th>BLOCk CHAIN ENTRY COUNT</th>
+
+
+      <th></th>
+
+  </tr>
+{% for encript in encript %}
+  <tr>
+
+       <td></td>
+    <td>{{ encript.user.first_name}}</td>
+          <td>{{ encript.time}}</td>
+
+      <td>{{ encript.Remark}}</td>
+
+    <td> {{ encript.status}}</td>
+      <td> {{ encript.blockchain_count }}</td>
+                  <td> {{ encript.blockchain_entry_count}}</td>
+
+<td></td>
+
+
+      </tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
+
+
+
+  {% endblock %}

@@ -1,0 +1,89 @@
+
+ {% extends 'employee/employee_base.html' %}
+{% load static %}
+{% block content %}
+  {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<br>
+ <br>
+ <br>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+
+<h2>PROJECT</h2>
+
+<table id="customers">
+  <tr>
+      <th></th>
+    <th>PROJECT NAME</th>
+      <th>BLOCKCHAIN ADMIN</th>
+            <th>ACTION</th>
+      <th>Remark</th>
+
+      <th>DATE AND TIME</th>
+
+
+
+
+
+
+
+
+
+      <th></th>
+
+  </tr>
+  {% for dri in pro  %}
+  <tr>
+      <td></td>
+          <td>{{ dri.project.name}}</td>
+
+    <td>{{ dri.user.first_name}}</td>
+          <td>{{ dri.status}}</td>
+      <td>{{ dri.Remark }}</td>
+    <td>{{ dri.datetime}}</td>
+
+
+
+      <td></td>
+
+  </tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
+
+
+
+
+{% endblock %}

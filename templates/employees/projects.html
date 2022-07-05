@@ -1,0 +1,113 @@
+
+ {% extends 'employee/employee_base.html' %}
+{% load static %}
+{% block content %}
+  {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<br>
+ <br>
+ <br>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+
+<h2>PROJECT</h2>
+
+<table id="customers">
+  <tr>
+      <th></th>
+    <th>PROJECT NAME</th>
+      <th>DESCRIPTION
+      <th>CLIENT NAME</th>
+      <th>AMOUNT</th>
+      <th>DATE AND TIME</th>
+      <th>BLOCKCHAIN COUNT</th>
+
+      <th>APPROVE</th>
+      <th>REJECT</th>
+
+
+
+
+
+
+
+
+      <th></th>
+
+  </tr>
+  {% for dri in project  %}
+  <tr>
+      <td></td>
+    <td>{{ dri.name}}</td>
+          <td>{{ dri.description}}</td>
+    <td>{{ dri.client}}</td>
+    <td>{{ dri.price}}</td>
+          <td>{{ dri.deadline_date}}</td>
+
+      <td><a href="view_ledger_login?c_id={{ dri.id }}" class=" btn btn-success">view ledger</a></td>
+
+
+         <form action="" method="post">
+        {% csrf_token %}
+
+    <td><textarea name="remark" placeholder="remark" > </textarea>
+                <input type="hidden" value="approve" name="type">
+                        <input type="hidden" value="{{dri.id}}" name="id">
+
+
+
+        <button type="submit">Submit</button></td>
+         </form>
+
+        <form action="" method="post">
+        {% csrf_token %}
+
+    <td><textarea name="remark" placeholder="remark" > </textarea>
+        <input type="hidden" value="reject" name="type">
+                <input type="hidden" value="{{dri.id}}" name="id">
+
+        <button type="submit">Submit</button></td>
+        </form>
+
+      <td></td>
+
+  </tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
+
+
+
+
+{% endblock %}
