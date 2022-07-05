@@ -1,0 +1,100 @@
+ {% extends 'hr/hr_base.html' %}
+{% load static %}
+{% block content %}
+        {% if message %}
+<script>
+alert("{{ message }}")
+</script>
+    {% endif %}
+
+<br>
+ <br>
+ <br>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+
+<h2>Leave Request</h2>
+
+<table id="customers">
+  <tr>
+      <th></th>
+    <th>Name</th>
+    <th>Designation</th>
+      <th>Leave Type</th>
+      <th>From Date</th>
+      <th>End Date</th>
+      <th>Period</th>
+      <th>No Of Days</th>
+
+      <th>Reason</th>
+      <th>Accept</th>
+      <th>Reject</th>
+
+
+
+
+
+
+
+
+     <th></th>
+
+  </tr>
+  {% for dri in leave  %}
+  <tr>
+      <td></td>
+    <td>{{ dri.user.first_name}}</td>
+          <td>{{ dri.employee.designation}}</td>
+
+      <td>{{ dri.leavetype}}</td>
+
+    <td> {{ dri.fromdate}}</td>
+      <td> {{ dri.enddate}}</td>
+            <td> {{ dri.leaveperiod}}</td>
+                  <td> {{ dri.noday}}</td>
+
+
+            <td> {{ dri.reason}}</td>
+       <td><a href="approve?id={{ dri.id}}" class=" btn btn-success">Accept</a></td>
+    <td><a href="reject?id={{ dri.id}}" class=" btn btn-danger">Reject</a></td>
+
+
+      <td></td>
+
+  </tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
+
+
+
+  {% endblock %}

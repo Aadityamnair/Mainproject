@@ -1,0 +1,148 @@
+ {% extends 'hr/hr_base.html' %}
+{% load static %}
+{% block content %}
+<!-- /navigation -->
+
+<!-- contact -->
+<section class="section-lg contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-title">Project Schedule</h2>
+            </div>
+        </div>
+        <div class="row contact-bg p-5 rounded mb-5">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label style="font-weight: bold;">Project Name</label>
+
+  <select style="width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" name="project_name" id="prisonerNumber" required>
+ {% for k in category %}
+    <option value="{{ k.id }}">{{ k.name }}</option>
+      {% endfor %}
+  </select>
+                    <label style="font-weight: bold;">Project Manager</label>
+  <select style="width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" name="project_mng" id="prisonerNumber" required>
+          <option value="">Select Project manager</option>
+
+ {% for k in manager %}
+    <option value="{{ k.user.first_name }}">{{ k.user.first_name }}</option>
+      {% endfor %}
+  </select>
+                    <label style="font-weight: bold;">Team Lead</label>
+  <select style="width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" name="lead" id="prisonerNumber" required>
+                <option value="">Select Team Lead</option>
+
+ {% for k in lead %}
+    <option value="{{ k.user_first_name }}">{{ k.user.first_name }}</option>
+      {% endfor %}
+  </select>
+                    <label style="font-weight: bold;">Software Engineers</label>
+  <select style="width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" name="eng1" id="prisonerNumber" >
+                      <option value="">Select Software Engineer </option>
+
+ {% for k in soft %}
+    <option value="{{ k.user.first_name }}">{{ k.user.first_name }}</option>
+      {% endfor %}
+  </select>
+        <select style="width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" name="eng2" id="prisonerNumber" >
+                                  <option value="">Select Software Engineer </option>
+
+ {% for k in soft %}
+    <option value="{{ k.user.first_name }}">{{ k.user.first_name }}</option>
+      {% endfor %}
+  </select>
+      <select style="width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" name="eng3" id="prisonNo" >
+                                <option value="">Select Juniour Engineer </option>
+
+      {% for k in juni %}
+    <option value="{{ k.user.first_name }}">{{ k.user.first_name }}</option>
+      {% endfor %}
+  </select>
+      <select style="width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" name="eng4" id="prisonNo" required>
+                                <option value="">Select Juniour Engineer </option>
+
+      {% for k in juni %}
+    <option value="{{ k.user.first_name }}">{{ k.user.first_name }}</option>
+      {% endfor %}
+  </select>
+      <select style="width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;" name="eng5" id="prisonNo">
+                                <option value="">Select Juniour Engineer </option>
+
+
+      {% for k in juni %}
+
+    <option value="{{ k.user.first_name }}">{{ k.user.first_name }}</option>
+      {% endfor %}
+  </select>
+
+                    <button type="submit" class="btn btn-secondary">Add</button>
+                </form>
+            </div>
+<!--            <div class="col-lg-5">-->
+<!--                <p class="mb-5">If you'll like to know more about our experience designing and delivering cloud solutions, or get advice on your own technology challenges get in touch. With dedicated engineers on-hand 24/7,      we’re set up to become an extension of your team.</p>-->
+<!--                <a href="tel:+442081446356" class="text-color h5 d-block">+44 20 8144 6356</a>-->
+<!--                <a href="mailto:info@altostack.io" class="mb-5 text-color h5 d-block">info@altostack.io</a>-->
+<!--                <p>71 Shelton Street<br>London WC2H 9JQ England</p>-->
+<!--            </div>-->
+        </div>
+
+        <img class="contact-bg-1 up-down-animation" src="{% static 'images/background-shape/feature-bg-2.png' %}" alt="background-shape">
+    <img class="contact-bg-2 left-right-animation" src="{% static 'images/background-shape/green-half-cycle.png' %}" alt="background-shape">
+    <img class="contact-bg-3 up-down-animation" src="{% static 'images/background-shape/green-dot.png' %}" alt="background-shape">
+    <img class="contact-bg-4 left-right-animation" src="{% static 'images/background-shape/service-half-cycle.png' %}" alt="background-shape">
+    <img class="contact-bg-5 up-down-animation" src="{% static 'images/background-shape/feature-bg-2.png' %}" alt="background-shape">
+</section>
+<!-- /contact -->
+
+<!-- footer -->
+{% endblock %}
