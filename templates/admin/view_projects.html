@@ -1,0 +1,102 @@
+
+ {% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+  {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<br>
+ <br>
+ <br>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+
+<h2>PROJECT</h2>
+<div>
+  <form action="" method="post">
+            {% csrf_token %}
+          <input width="500px" autocomplete="off" type="text" placeholder="Search by name Projects" name="search">
+          <button type="submit">Search</button>
+        </form>
+</div>
+<br>
+<table id="customers">
+  <tr>
+      <th></th>
+    <th>PROJECT NAME</th>
+      <th>PROJECT MANAGER</th>
+      <th>TEAM LEAD</th>
+      <th>SOFTWARE ENGINEER</th>
+      <th>SOFTWARE ENGINEER</th>
+      <th>JUNIOR SOFTWARE ENGINEER</th>
+
+      <th>JUNIOR SOFTWARE ENGINEER</th>
+      <th>JUNIOR SOFTWARE ENGINEER</th>
+
+
+
+
+
+
+
+
+      <th></th>
+
+  </tr>
+  {% for dri in cri  %}
+  <tr>
+      <td></td>
+    <td>{{ dri.project.name}}</td>
+          <td>{{ dri.project_mng}}</td>
+    <td>{{ dri.lead}}</td>
+    <td>{{ dri.eng1}}</td>
+    <td>{{ dri.eng2}}</td>
+    <td>{{ dri.eng3}}</td>
+    <td>{{ dri.eng4}}</td>
+    <td>{{ dri.eng5}}</td>
+
+
+
+
+
+      <td></td>
+
+  </tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
+
+
+
+
+{% endblock %}
